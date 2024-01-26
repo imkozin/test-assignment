@@ -55,4 +55,20 @@ def run_task(parameter: int) -> None:
 # Сериализация данных: В ProcessPoolExecutor данные, передаваемые между процессами, должны быть сериализованы и десериализованы. Это может потребовать дополнительных усилий и влиять на производительность. В ThreadPoolExecutor такой необходимости нет.
         
 # Для некоторых задач может быть полезно использовать обе технологии параллельно, в зависимости от характера задач в вашем приложении.
+# Io bound 
 
+        
+def complex_task(value: int) -> int:
+    # some calculations
+    return value
+
+def some_loop(length: int) -> list[int]:
+    # calculated_list = []
+    # for i in range(length):
+    #     calculated_list.append(complex_task(i))
+    # return calculated_list
+    # calculated_list = [complex_task(i) for i in range(length)]
+    # return calculated_list
+
+    for i in range(length):
+        yield complex_task(i)

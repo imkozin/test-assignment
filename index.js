@@ -11,6 +11,7 @@ item.describe()
 // const userData = JSON.parse(userInput)
 // const query = `SELECT * FROM users WHERE name = '${userData.name}' AND password = '${userData.password}'`
 
+
 const userData = JSON.parse(userInput)
 const query = 'SELECT * FROM users WHERE name = ? AND password = ?'
 // Пример использования библиотеки для параметризации запроса
